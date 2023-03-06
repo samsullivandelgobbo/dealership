@@ -1,3 +1,7 @@
+<script>
+  import Modal from "./Modal.svelte";
+</script>
+
 <div class="navbar bg-base-100">
   <div class="navbar-start">
     <div class="dropdown">
@@ -71,6 +75,9 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <a class="btn">Get started</a>
+    
+<slot/>
+
+    
   </div>
 </div>

@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String   @id @default(uuid())
+  email           String   @unique
+  passwordHash    String?
+  userAuthToken   String   @unique
+  authMethod      Int // local [0], google [1]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt // last login
+  firstName       String?
+  lastName        String?
+  profilePhotoURL String?
+
+  vehiclesSold   Inventory[] @relation("sold_vehicles")
+
+  vehiclesBought Inventory[] @relation("bought_vehicles")
+
+  favorites      Favorites[] 
+  
+  role   Roles @relation(fields: [roleId], references: [id])
+  roleId Int
+}
+
+model Roles {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+  User User[]
+}
+
+model Inventory {
+  id           String   @id @default(uuid())
+  vin          String?  @unique
+  make         String?
+  model        String?
+  year         Int?
+  price        Int?
+  odometer     Int?
+  color        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  dateSold     DateTime?
+  inStock      Boolean  @default(true)
+  photos       InventoryMedia[] 
+
+  boughtBy   User?  @relation("bought_vehicles", fields: [boughtByUserId], references: [id])
+  boughtByUserId String?
+
+  soldBy   User?  @relation("sold_vehicles", fields: [soldByUserId], references: [id])
+  soldByUserId String?
+
+  favoriteBy Favorites[]
+}
+
+model InventoryMedia {
+  url String
+  vehicle Inventory @relation(fields: [vehicleId], references: [id])
+  vehicleId String
+
+  @@id([url, vehicleId])
+  @@index([vehicleId])
+}
+
+
+model Favorites {
+  id String @id @default(uuid())
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  inventory Inventory @relation(fields: [inventoryId], references: [id])
+  inventoryId String
+
+  @@unique([userId, inventoryId])
+}

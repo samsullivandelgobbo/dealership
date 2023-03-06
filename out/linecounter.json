@@ -1,0 +1,1201 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "/mnt/a/programming/dealership",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2023-03-05 15:55:43",
+            "filesum": 184,
+            "codesum": 29998,
+            "commentsum": 410,
+            "blanksum": 698,
+            "statistics": {
+                ".cjs": {
+                    "code": 56,
+                    "comment": 2,
+                    "blank": 16
+                },
+                ".js": {
+                    "code": 606,
+                    "comment": 140,
+                    "blank": 142
+                },
+                ".json": {
+                    "code": 26355,
+                    "comment": 8,
+                    "blank": 115
+                },
+                "": {
+                    "code": 45,
+                    "comment": 5,
+                    "blank": 10
+                },
+                ".md": {
+                    "code": 25,
+                    "comment": 2,
+                    "blank": 14
+                },
+                ".ts": {
+                    "code": 1168,
+                    "comment": 214,
+                    "blank": 195
+                },
+                ".html": {
+                    "code": 27,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".css": {
+                    "code": 124,
+                    "comment": 0,
+                    "blank": 13
+                },
+                ".prisma": {
+                    "code": 86,
+                    "comment": 17,
+                    "blank": 24
+                },
+                ".ipynb": {
+                    "code": 341,
+                    "comment": 0,
+                    "blank": 7
+                },
+                ".svelte": {
+                    "code": 1038,
+                    "comment": 20,
+                    "blank": 146
+                },
+                ".mjs": {
+                    "code": 16,
+                    "comment": 2,
+                    "blank": 0
+                },
+                ".mdx": {
+                    "code": 103,
+                    "comment": 0,
+                    "blank": 16
+                },
+                ".svg": {
+                    "code": 8,
+                    "comment": 0,
+                    "blank": 0
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 8,
+                    "code": 12,
+                    "comment": 3,
+                    "filename": "dealer/.env"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "dealer/.gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.npmrc"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "dealer/.storybook/main.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "dealer/.storybook/preview-head.html"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "dealer/.storybook/preview.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 135,
+                    "comment": 54,
+                    "filename": "dealer/.svelte-kit/ambient.d.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/app.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/manifest.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/matchers.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/0.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/1.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/10.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/11.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/12.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/13.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/2.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/3.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/4.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/5.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/6.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/7.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/8.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/generated/client/nodes/9.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 51,
+                    "comment": 1,
+                    "filename": "dealer/.svelte-kit/generated/root.svelte"
+                },
+                {
+                    "blank": 4,
+                    "code": 24,
+                    "comment": 1,
+                    "filename": "dealer/.svelte-kit/generated/server/internal.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/tsconfig.json"
+                },
+                {
+                    "blank": 12,
+                    "code": 56,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/route_meta_data.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/admin/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/admin/analytics/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/admin/inventory/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/admin/inventory/add/$types.d.ts"
+                },
+                {
+                    "blank": 11,
+                    "code": 55,
+                    "comment": 2,
+                    "filename": "dealer/.svelte-kit/types/src/routes/admin/inventory/add/proxy+page.server.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 25,
+                    "comment": 1,
+                    "filename": "dealer/.svelte-kit/types/src/routes/admin/inventory/proxy+page.server.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 2,
+                    "filename": "dealer/.svelte-kit/types/src/routes/admin/proxy+layout.server.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/auth/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/auth/google/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/auth/google/callback/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/auth/login/$types.d.ts"
+                },
+                {
+                    "blank": 18,
+                    "code": 42,
+                    "comment": 26,
+                    "filename": "dealer/.svelte-kit/types/src/routes/auth/login/proxy+page.server.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/auth/logout/$types.d.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "dealer/.svelte-kit/types/src/routes/auth/logout/proxy+page.server.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/auth/register/$types.d.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 49,
+                    "comment": 10,
+                    "filename": "dealer/.svelte-kit/types/src/routes/auth/register/proxy+page.server.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/inventory/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/inventory/[slug]/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 5,
+                    "comment": 1,
+                    "filename": "dealer/.svelte-kit/types/src/routes/inventory/[slug]/proxy+page.server.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "dealer/.svelte-kit/types/src/routes/inventory/proxy+page.server.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "dealer/.svelte-kit/types/src/routes/profile/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 6,
+                    "comment": 1,
+                    "filename": "dealer/.svelte-kit/types/src/routes/proxy+layout.server.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 4,
+                    "filename": "dealer/jsconfig.json"
+                },
+                {
+                    "blank": 46,
+                    "code": 21913,
+                    "comment": 0,
+                    "filename": "dealer/package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": "dealer/package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "dealer/postcss.config.cjs"
+                },
+                {
+                    "filename": "dealer/prisma/dev.db",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 17,
+                    "code": 64,
+                    "comment": 4,
+                    "filename": "dealer/prisma/schema.prisma"
+                },
+                {
+                    "blank": 7,
+                    "code": 12,
+                    "comment": 1,
+                    "filename": "dealer/README.md"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "dealer/src/app.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 5,
+                    "filename": "dealer/src/app.d.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "dealer/src/app.html"
+                },
+                {
+                    "blank": 8,
+                    "code": 23,
+                    "comment": 5,
+                    "filename": "dealer/src/hooks.server.ts"
+                },
+                {
+                    "blank": 18,
+                    "code": 102,
+                    "comment": 0,
+                    "filename": "dealer/src/lib/components/base/Login.svelte"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "dealer/src/lib/components/base/Modal.svelte"
+                },
+                {
+                    "blank": 8,
+                    "code": 46,
+                    "comment": 0,
+                    "filename": "dealer/src/lib/components/base/Navbar.svelte"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "dealer/src/lib/components/dealer/base/Button.svelte"
+                },
+                {
+                    "blank": 1,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "dealer/src/lib/data/database.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/+layout.server.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 102,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/+layout.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/+layout.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/+page.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/+page.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 1,
+                    "filename": "dealer/src/routes/admin/+layout.server.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/admin/+layout.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/admin/+page.server.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/admin/+page.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/admin/analytics/+page.server.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/admin/analytics/+page.svelte"
+                },
+                {
+                    "blank": 2,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/admin/inventory/+page.server.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/admin/inventory/+page.svelte"
+                },
+                {
+                    "blank": 11,
+                    "code": 54,
+                    "comment": 1,
+                    "filename": "dealer/src/routes/admin/inventory/add/+page.server.ts"
+                },
+                {
+                    "blank": 19,
+                    "code": 107,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/admin/inventory/add/+page.svelte"
+                },
+                {
+                    "blank": 16,
+                    "code": 78,
+                    "comment": 8,
+                    "filename": "dealer/src/routes/auth/google/callback/+server.ts"
+                },
+                {
+                    "blank": 18,
+                    "code": 41,
+                    "comment": 25,
+                    "filename": "dealer/src/routes/auth/login/+page.server.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/auth/login/+page.svelte"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/auth/logout/+page.server.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 48,
+                    "comment": 9,
+                    "filename": "dealer/src/routes/auth/register/+page.server.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/auth/register/+page.svelte"
+                },
+                {
+                    "blank": 8,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/inventory/+page.server.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/inventory/+page.svelte"
+                },
+                {
+                    "blank": 2,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/inventory/[slug]/+page.server.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/inventory/[slug]/+page.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "dealer/src/routes/profile/+page.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/assets/code-brackets.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/assets/colors.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/assets/comments.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/assets/direction.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/assets/flow.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/assets/plugin.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/assets/repo.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/assets/stackalt.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/button.css"
+                },
+                {
+                    "blank": 5,
+                    "code": 36,
+                    "comment": 2,
+                    "filename": "dealer/src/stories/Button.stories.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 18,
+                    "comment": 12,
+                    "filename": "dealer/src/stories/Button.svelte"
+                },
+                {
+                    "blank": 4,
+                    "code": 28,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/header.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 17,
+                    "comment": 2,
+                    "filename": "dealer/src/stories/Header.stories.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/Header.svelte"
+                },
+                {
+                    "blank": 16,
+                    "code": 103,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/Introduction.mdx"
+                },
+                {
+                    "blank": 9,
+                    "code": 60,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/page.css"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 2,
+                    "filename": "dealer/src/stories/Page.stories.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 65,
+                    "comment": 0,
+                    "filename": "dealer/src/stories/Page.svelte"
+                },
+                {
+                    "filename": "dealer/static/favicon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "dealer/static/img/6b9063e8-b028-48bb-a389-1a3d5dfb143b/6b9063e8-b028-48bb-a389-1a3d5dfb143b_0.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "dealer/static/img/6b9063e8-b028-48bb-a389-1a3d5dfb143b/6b9063e8-b028-48bb-a389-1a3d5dfb143b_1.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 1,
+                    "filename": "dealer/svelte.config.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 37,
+                    "comment": 1,
+                    "filename": "dealer/tailwind.config.cjs"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 1,
+                    "filename": "dealer/vite.config.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 2,
+                    "filename": "dealer/vite.config.js.timestamp-1677883564196.mjs"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "salesy-testing/.gitignore"
+                },
+                {
+                    "filename": "salesy-testing/AutoTrader.db",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "salesy-testing/AutoTraderCA.db",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 6,
+                    "code": 55,
+                    "comment": 34,
+                    "filename": "salesy-testing/db.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 41,
+                    "comment": 5,
+                    "filename": "salesy-testing/main.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 2040,
+                    "comment": 0,
+                    "filename": "salesy-testing/package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "salesy-testing/package.json"
+                },
+                {
+                    "blank": 12,
+                    "code": 38,
+                    "comment": 59,
+                    "filename": "salesy-testing/playwright.config.js"
+                },
+                {
+                    "blank": 36,
+                    "code": 88,
+                    "comment": 6,
+                    "filename": "salesy-testing/server/scraper.js"
+                },
+                {
+                    "blank": 35,
+                    "code": 103,
+                    "comment": 23,
+                    "filename": "salesy-testing/server/scrapeVehicle.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "salesy-testing/server/server.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "salesy-testing/server/services/db.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "salesy-testing/server/vehiclePageScraper.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 341,
+                    "comment": 0,
+                    "filename": "salesy-testing/test.ipynb"
+                },
+                {
+                    "blank": 2,
+                    "code": 5,
+                    "comment": 2,
+                    "filename": "web/.env"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "web/.gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "web/.npmrc"
+                },
+                {
+                    "blank": 8,
+                    "code": 127,
+                    "comment": 54,
+                    "filename": "web/.svelte-kit/ambient.d.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/generated/client-manifest.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/generated/client-matchers.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/generated/nodes/0.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/generated/nodes/1.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/generated/nodes/2.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/generated/nodes/3.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/generated/nodes/4.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/generated/nodes/5.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/generated/nodes/6.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/generated/nodes/7.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 50,
+                    "comment": 1,
+                    "filename": "web/.svelte-kit/generated/root.svelte"
+                },
+                {
+                    "blank": 6,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/tsconfig.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/types/route_meta_data.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/types/src/routes/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/types/src/routes/demo/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/types/src/routes/google/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/types/src/routes/google/callback/$types.d.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "web/.svelte-kit/types/src/routes/pricing/$types.d.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 4,
+                    "filename": "web/jsconfig.json"
+                },
+                {
+                    "blank": 45,
+                    "code": 2146,
+                    "comment": 0,
+                    "filename": "web/package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "web/package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "web/postcss.config.cjs"
+                },
+                {
+                    "blank": 7,
+                    "code": 22,
+                    "comment": 13,
+                    "filename": "web/prisma/schema.prisma"
+                },
+                {
+                    "blank": 7,
+                    "code": 12,
+                    "comment": 1,
+                    "filename": "web/README.md"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "web/src/app.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 7,
+                    "filename": "web/src/app.d.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "web/src/app.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "web/src/lib/components/base/dealership/dodge-ram/DodgeRamNavbar.svelte"
+                },
+                {
+                    "blank": 4,
+                    "code": 91,
+                    "comment": 0,
+                    "filename": "web/src/lib/components/base/dealership/hyundai/HyundaiNavbar.svelte"
+                },
+                {
+                    "blank": 4,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "web/src/lib/components/base/Hero.svelte"
+                },
+                {
+                    "blank": 9,
+                    "code": 87,
+                    "comment": 0,
+                    "filename": "web/src/lib/components/base/Login.svelte"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "web/src/lib/components/base/Modal.svelte"
+                },
+                {
+                    "blank": 4,
+                    "code": 79,
+                    "comment": 0,
+                    "filename": "web/src/lib/components/base/Navbar.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "web/src/lib/components/configurator/Edit.svelte"
+                },
+                {
+                    "blank": 1,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "web/src/lib/data/database.ts"
+                },
+                {
+                    "filename": "web/src/lib/data/dev.db",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "web/src/routes/+layout.svelte"
+                },
+                {
+                    "blank": 7,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "web/src/routes/+page.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "web/src/routes/demo/+layout.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "web/src/routes/demo/+page.svelte"
+                },
+                {
+                    "blank": 6,
+                    "code": 23,
+                    "comment": 6,
+                    "filename": "web/src/routes/google/+page.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "web/src/routes/google/callback/+page.svelte"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "web/src/routes/pricing/+page.svelte"
+                },
+                {
+                    "filename": "web/static/favicon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 1,
+                    "filename": "web/svelte.config.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 1,
+                    "filename": "web/tailwind.config.cjs"
+                },
+                {
+                    "blank": 2,
+                    "code": 5,
+                    "comment": 1,
+                    "filename": "web/vite.config.js"
+                }
+            ]
+        }
+    ]
+}
