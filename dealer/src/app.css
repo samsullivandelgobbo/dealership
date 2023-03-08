@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
+
+@font-face {
+  font-family: 'HyundaiSansHead';
+  font-weight: bold;
+  src: local('HyundaiSansHead'), url('/fonts/HyundaiSansHead-Bold.ttf');
+
+}
+@font-face {
+  font-family: 'HyundaiSansHead';
+  font-weight: normal;
+  src: local('HyundaiSansHead'), url('/fonts/HyundaiSansHead-Regular.ttf');
+
+}
+@font-face {
+  font-family: 'HyundaiSansText';
+  font-weight: normal;
+  src: local('HyundaiSansText'), url('/fonts/HyundaiSansText-Regular.ttf');
+
+}
+@font-face {
+  font-family: 'HyundaiSansText';
+  font-weight: medium;
+  src: local('HyundaiSansText'), url('/fonts/HyundaiSansText-Medium.ttf');
+
+}
 @tailwind utilities;
+

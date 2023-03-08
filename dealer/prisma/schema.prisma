@@ -10,74 +10,209 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Base User Model / Normalization
 model User {
   id              String   @id @default(uuid())
   email           String   @unique
+  emailVerified   Boolean  @default(false)
   passwordHash    String?
-  userAuthToken   String   @unique
+  authToken       String   @unique
   authMethod      Int // local [0], google [1]
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt // last login
   firstName       String?
   lastName        String?
   profilePhotoURL String?
+  phoneNumber     String?  @unique
+  phoneVerified   Boolean  @default(false)
+  address         Address[]
 
-  vehiclesSold   Inventory[] @relation("sold_vehicles")
-
-  vehiclesBought Inventory[] @relation("bought_vehicles")
-
-  favorites      Favorites[] 
-  
-  role   Roles @relation(fields: [roleId], references: [id])
-  roleId Int
+  // Roles
+  customer Customer?
+  salesPerson SalesPerson?
+  mechanic Mechanic?
+  admin Admin?
 }
 
-model Roles {
-  id   Int    @id @default(autoincrement())
-  name String @unique
-  User User[]
+// Address Normalization
+model Address {
+  address String
+  city String
+  province String
+  postalCode String
+  country String
+  defaultAddress Boolean
+  user User @relation(fields: [userId], references: [id])
+  userId String @unique
+  @@id([userId])
+  @@index([userId])
 }
 
-model Inventory {
+// Customer Role
+model Customer {
+  user User @relation(fields: [userId], references: [id])
+  userId String @unique
+  vehicle CustomerVehicle[]
+  favorites VehicleFavorites[]
+  @@id([userId])
+  @@index([userId])
+}
+
+// Sales Person Role
+model SalesPerson {
+  user User @relation(fields: [userId], references: [id])
+  userId String @unique
+  vehicleSales SoldVehicle[]
+  @@id([userId])
+  @@index([userId])
+}
+
+// Mechanic Role
+model Mechanic {
+  user User @relation(fields: [userId], references: [id])
+  userId String @unique
+  @@id([userId])
+  @@index([userId])
+}
+
+// Admin Role
+model Admin {
+  user User @relation(fields: [userId], references: [id])
+  userId String @unique
+  @@id([userId])
+  @@index([userId])
+}
+
+// Base Vehicle Model / Normalization
+model Vehicle {
   id           String   @id @default(uuid())
   vin          String?  @unique
   make         String?
   model        String?
+  package      String?
   year         Int?
   price        Int?
   odometer     Int?
   color        String?
+  bodyStyle    String?
+  fuelType     String?
+  transmission String?
+  driveTrain   String?
+  engine       String?
+  notes        String?
+  interiorColor String?
+  features     String?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-  dateSold     DateTime?
-  inStock      Boolean  @default(true)
-  photos       InventoryMedia[] 
-
-  boughtBy   User?  @relation("bought_vehicles", fields: [boughtByUserId], references: [id])
-  boughtByUserId String?
-
-  soldBy   User?  @relation("sold_vehicles", fields: [soldByUserId], references: [id])
-  soldByUserId String?
-
-  favoriteBy Favorites[]
+  media        VehicleMedia[]
+  // Relations
+  inStockVehicle  InStockVehicle[]
+  soldVehicle     SoldVehicle[]
+  customerVehicle CustomerVehicle[]
 }
 
-model InventoryMedia {
-  url String
-  vehicle Inventory @relation(fields: [vehicleId], references: [id])
-  vehicleId String
 
+model VehicleMedia {
+  url       String
+  vehicle   Vehicle @relation(fields: [vehicleId], references: [id])
+  vehicleId String 
+  type      String
   @@id([url, vehicleId])
   @@index([vehicleId])
 }
 
-
-model Favorites {
-  id String @id @default(uuid())
-  user User @relation(fields: [userId], references: [id])
-  userId String
-  inventory Inventory @relation(fields: [inventoryId], references: [id])
-  inventoryId String
-
-  @@unique([userId, inventoryId])
+// Current Inventory
+model InStockVehicle {
+  vehicle Vehicle @relation(fields: [vehicleId], references: [id])
+  vehicleId String @unique
+  favorites VehicleFavorites[]
+  @@id ([vehicleId])
+  @@index ([vehicleId])
 }
+
+// Sold Inventory
+model SoldVehicle {
+  vehicle Vehicle @relation(fields: [vehicleId], references: [id])
+  vehicleId String @unique
+  dateSold DateTime @default(now())
+  salesPerson SalesPerson @relation(fields: [salesPersonId], references: [userId]) 
+  salesPersonId String
+  @@id ([vehicleId])
+  @@index ([vehicleId])
+}
+
+// Customer Vehicle
+model CustomerVehicle {
+  vehicle Vehicle @relation(fields: [vehicleId], references: [id])
+  vehicleId String @unique
+  customer Customer @relation(fields: [customerId], references: [userId])
+  customerId String @unique
+  @@id ([vehicleId, customerId])
+  @@index ([vehicleId, customerId])
+}
+
+
+model VehicleFavorites {
+  id String @id @default(uuid())
+  customer Customer @relation(fields: [customerId], references: [userId])
+  customerId String
+  vehicle InStockVehicle @relation(fields: [vehicleId], references: [vehicleId])
+  vehicleId String
+  dateAdded DateTime @default(now())
+  @@unique([customerId, vehicleId])
+}
+
+
+
+
+
+
+
+// model Year {
+//   id    Int     @id @default(autoincrement())
+//   year  Int
+//   months Month[]
+// }
+
+// model Month {
+//   id      Int     @id @default(autoincrement())
+//   month   Int
+//   year    Year    @relation(fields: [yearId], references: [id])
+//   yearId  Int
+//   weeks   Week[]
+// }
+
+// model Week {
+//   id      Int     @id @default(autoincrement())
+//   week    Int
+//   month   Month   @relation(fields: [monthId], references: [id])
+//   monthId Int
+//   days    Day[]
+// }
+
+// model Day {
+//   id        Int     @id @default(autoincrement())
+//   day       Int
+//   week      Week    @relation(fields: [weekId], references: [id])
+//   weekId    Int
+//   hours     Hour[]
+// }
+
+// model Hour {
+//   id            Int      @id @default(autoincrement())
+//   hour          Int
+//   available     Boolean
+//   booked        Boolean
+//   appointment   Appointment[]
+//   day           Day      @relation(fields: [dayId], references: [id])
+//   dayId         Int
+// }
+
+// model Appointment {
+//   id           Int     @id @default(autoincrement())
+//   userName     String
+//   phoneNumber  String
+//   serviceType  String
+//   hour         Hour    @relation(fields: [hourId], references: [id])
+//   hourId       Int
+// }

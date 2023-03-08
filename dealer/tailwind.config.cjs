@@ -2,18 +2,22 @@
 module.exports = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        hyundai: ["HyundaiSansHead", "HyundaiSansText"],
+      },
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
         hyundai_light: {
-          primary: "#e4dcd3",
+          primary: "#032d61",
 
-          secondary: "#032d61",
+          secondary: "#FFFFFF",
 
-          accent: "#969594",
+          accent: "#a5f3fc",
 
           neutral: "#e4dcd3",
 

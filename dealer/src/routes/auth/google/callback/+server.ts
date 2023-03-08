@@ -2,10 +2,6 @@ import { error, json, redirect } from "@sveltejs/kit"
 
 import { db } from "$lib/data/database"
 
-enum Roles {
-  ADMIN = "ADMIN",
-  USER = "USER",
-}
 
 export async function GET({ url, cookies }) {
   const code = url.searchParams.get("code")
@@ -58,32 +54,67 @@ export async function GET({ url, cookies }) {
 
   const email = profileInfo.email
 
-  const user = await db.user.findUnique({
-    where: { email },
-  })
+  const customer = await db.customer.findUnique({
+    where: { email: { email } },
+    include: { user: true },
+  });
 
-  if (!user) {
-    const newUser = await db.user.create({
+  if (!customer) {
+    const newCustomer = await db.customer.create({
       data: {
-        email,
-        authMethod: 1,
-        userAuthToken: access_token,
-        role: { connect: { name: Roles.USER } },
-        firstName: name.firstName,
-        lastName: name.lastName,
-        profilePhotoURL: profilePic,
-        
-      },
+        user: {
+          create: {
+            email,
+            authMethod: 1,
+            authToken: access_token,
+            firstName: name.firstName,
+            lastName: name.lastName,
+            profilePhotoURL: profilePic,
+          },
+        }
+      }
     })
-    if (!newUser) {
+    console.log(newCustomer)
+    console.log(customer)
+    if (!newCustomer) {
       console.error("Error creating user")
     }
   } else {
-    const authenticatedUser = await db.user.update({
-      where: { email: email },
-      data: { userAuthToken: access_token },
+    const authenticatedCustomer = await db.customer.update({
+      where: { id: customer.id },
+      data: { user: { update: { authToken: access_token } } },
     })
   }
+
+
+
+
+  // const user = await db.user.findUnique({
+  //   where: { email },
+  // })
+
+  // if (!user) {
+  //   const newUser = await db.user.create({
+  //     data: {
+  //       email,
+  //       authMethod: 1,
+  //       authToken: access_token,
+  //       role: { connect: { name: Roles.USER } },
+  //       firstName: name.firstName,
+  //       lastName: name.lastName,
+  //       profilePhotoURL: profilePic,
+        
+  //     },
+  //   })
+  //   if (!newUser) {
+  //     console.error("Error creating user")
+  //   }
+  // } else {
+  //   const authenticatedUser = await db.user.update({
+  //     where: { email: email },
+  //     data: { userAuthToken: access_token },
+  //   })
+  // }
 
   cookies.set("session", access_token, {
     // send cookie for every page
