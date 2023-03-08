@@ -12,161 +12,166 @@ datasource db {
 
 // Base User Model / Normalization
 model User {
-  id              String   @id @default(uuid())
-  email           String   @unique
-  emailVerified   Boolean  @default(false)
+  id              String    @id @default(uuid())
+  email           String    @unique
+  emailVerified   Boolean   @default(false)
   passwordHash    String?
-  authToken       String   @unique
+  authToken       String    @unique
   authMethod      Int // local [0], google [1]
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt // last login
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt // last login
   firstName       String?
   lastName        String?
   profilePhotoURL String?
-  phoneNumber     String?  @unique
-  phoneVerified   Boolean  @default(false)
+  phoneNumber     String?   @unique
+  phoneVerified   Boolean   @default(false)
   address         Address[]
 
   // Roles
-  customer Customer?
+  customer    Customer?
   salesPerson SalesPerson?
-  mechanic Mechanic?
-  admin Admin?
+  mechanic    Mechanic?
+  admin       Admin?
 }
 
 // Address Normalization
 model Address {
-  address String
-  city String
-  province String
-  postalCode String
-  country String
+  address        String
+  city           String
+  province       String
+  postalCode     String
+  country        String
   defaultAddress Boolean
-  user User @relation(fields: [userId], references: [id])
-  userId String @unique
+  user           User    @relation(fields: [userId], references: [id])
+  userId         String  @unique
+
   @@id([userId])
   @@index([userId])
 }
 
 // Customer Role
 model Customer {
-  user User @relation(fields: [userId], references: [id])
-  userId String @unique
-  vehicle CustomerVehicle[]
+  user      User               @relation(fields: [userId], references: [id])
+  userId    String             @unique
+  vehicle   CustomerVehicle[]
   favorites VehicleFavorites[]
+
   @@id([userId])
   @@index([userId])
 }
 
 // Sales Person Role
 model SalesPerson {
-  user User @relation(fields: [userId], references: [id])
-  userId String @unique
+  user         User          @relation(fields: [userId], references: [id])
+  userId       String        @unique
   vehicleSales SoldVehicle[]
+
   @@id([userId])
   @@index([userId])
 }
 
 // Mechanic Role
 model Mechanic {
-  user User @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
   userId String @unique
+
   @@id([userId])
   @@index([userId])
 }
 
 // Admin Role
 model Admin {
-  user User @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
   userId String @unique
+
   @@id([userId])
   @@index([userId])
 }
 
 // Base Vehicle Model / Normalization
 model Vehicle {
-  id           String   @id @default(uuid())
-  vin          String?  @unique
-  make         String?
-  model        String?
-  package      String?
-  year         Int?
-  price        Int?
-  odometer     Int?
-  color        String?
-  bodyStyle    String?
-  fuelType     String?
-  transmission String?
-  driveTrain   String?
-  engine       String?
-  notes        String?
-  interiorColor String?
-  features     String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  media        VehicleMedia[]
+  id              String            @id @default(uuid())
+  vin             String?           @unique
+  make            String?
+  model           String?
+  package         String?
+  year            Int?
+  price           Int?
+  odometer        Int?
+  color           String?
+  bodyStyle       String?
+  fuelType        String?
+  transmission    String?
+  driveTrain      String?
+  engine          String?
+  notes           String?
+  interiorColor   String?
+  features        String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  media           VehicleMedia[]
   // Relations
   inStockVehicle  InStockVehicle[]
   soldVehicle     SoldVehicle[]
   customerVehicle CustomerVehicle[]
 }
 
-
 model VehicleMedia {
   url       String
   vehicle   Vehicle @relation(fields: [vehicleId], references: [id])
-  vehicleId String 
+  vehicleId String
   type      String
+
   @@id([url, vehicleId])
   @@index([vehicleId])
 }
 
 // Current Inventory
 model InStockVehicle {
-  vehicle Vehicle @relation(fields: [vehicleId], references: [id])
-  vehicleId String @unique
+  vehicle   Vehicle            @relation(fields: [vehicleId], references: [id])
+  vehicleId String             @unique
   favorites VehicleFavorites[]
-  @@id ([vehicleId])
-  @@index ([vehicleId])
+
+  @@id([vehicleId])
+  @@index([vehicleId])
 }
 
 // Sold Inventory
 model SoldVehicle {
-  vehicle Vehicle @relation(fields: [vehicleId], references: [id])
-  vehicleId String @unique
-  dateSold DateTime @default(now())
-  salesPerson SalesPerson @relation(fields: [salesPersonId], references: [userId]) 
+  vehicle       Vehicle     @relation(fields: [vehicleId], references: [id])
+  vehicleId     String      @unique
+  dateSold      DateTime    @default(now())
+  salesPerson   SalesPerson @relation(fields: [salesPersonId], references: [userId])
   salesPersonId String
-  @@id ([vehicleId])
-  @@index ([vehicleId])
+
+  @@id([vehicleId])
+  @@index([vehicleId])
 }
 
 // Customer Vehicle
 model CustomerVehicle {
-  vehicle Vehicle @relation(fields: [vehicleId], references: [id])
-  vehicleId String @unique
-  customer Customer @relation(fields: [customerId], references: [userId])
-  customerId String @unique
-  @@id ([vehicleId, customerId])
-  @@index ([vehicleId, customerId])
+  vehicle    Vehicle  @relation(fields: [vehicleId], references: [id])
+  vehicleId  String   @unique
+  customer   Customer @relation(fields: [customerId], references: [userId])
+  customerId String   @unique
+
+  @@id([vehicleId, customerId])
+  @@index([vehicleId, customerId])
 }
 
-
 model VehicleFavorites {
-  id String @id @default(uuid())
-  customer Customer @relation(fields: [customerId], references: [userId])
+  id         String         @id @default(uuid())
+  customer   Customer       @relation(fields: [customerId], references: [userId])
   customerId String
-  vehicle InStockVehicle @relation(fields: [vehicleId], references: [vehicleId])
-  vehicleId String
-  dateAdded DateTime @default(now())
+  vehicle    InStockVehicle @relation(fields: [vehicleId], references: [vehicleId])
+  vehicleId  String
+  dateAdded  DateTime       @default(now())
+
   @@unique([customerId, vehicleId])
 }
 
-
-
-
-
-
+// TODO : Add messages 
+// TODO : Add notifications
 
 // model Year {
 //   id    Int     @id @default(autoincrement())

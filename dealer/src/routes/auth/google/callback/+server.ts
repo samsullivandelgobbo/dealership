@@ -54,9 +54,9 @@ export async function GET({ url, cookies }) {
 
   const email = profileInfo.email
 
-  const customer = await db.customer.findUnique({
-    where: { email: { email } },
-    include: { user: true },
+  const customer = await db.user.findUnique({
+    where: { email },
+    include: { customer: true },
   });
 
   if (!customer) {
