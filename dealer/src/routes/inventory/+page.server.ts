@@ -7,18 +7,19 @@ import { db } from '$lib/data/database'
 
 
 export const load: PageServerLoad = async () => {
-  const vehicles = await db.inventory.findMany({
+  const inStockVehicles = await db.inStockVehicle.findMany({
     include: {
-      photos: true,
+      vehicle: {
+        include: {
+          media: true,
+        }
+      },
+
     },
-    where: {
-      inStock: true,
-      dateSold: null
-    }
   })
 
   return {
-    vehicles,
+    inStockVehicles,
 
   }
 }

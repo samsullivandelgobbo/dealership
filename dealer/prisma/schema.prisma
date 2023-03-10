@@ -94,19 +94,25 @@ model Vehicle {
   vin             String?           @unique
   make            String?
   model           String?
-  package         String?
+  trim         String?
   year            Int?
   price           Int?
   odometer        Int?
   color           String?
+  interiorColor   String?
+  description     String?
   bodyStyle       String?
   fuelType        String?
   transmission    String?
   driveTrain      String?
   engine          String?
+  engineCylinders Int?
+  engineDisplacement    Int?
+  engineHorsepower      Int?
+  seats           Int?
+  seatRows        Int?
+  doors          Int?
   notes           String?
-  interiorColor   String?
-  features        String?
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt
   media           VehicleMedia[]
@@ -114,6 +120,8 @@ model Vehicle {
   inStockVehicle  InStockVehicle[]
   soldVehicle     SoldVehicle[]
   customerVehicle CustomerVehicle[]
+
+  @@index([vin])
 }
 
 model VehicleMedia {

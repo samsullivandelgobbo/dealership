@@ -6,4 +6,4 @@
 
 </script>
 
-<h1>{data.vehicles[0]}</h1>
+<h1>{JSON.stringify(data.vehicles)}</h1>

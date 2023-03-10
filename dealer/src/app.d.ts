@@ -11,6 +11,11 @@ declare global {
 				lastName: string
 				profilePicture: string
 				favorites: string[]
+			},
+			errors: {
+				emailError: boolean
+				passwordMismatch: boolean
+				unauthorized: boolean
 			}
 		}
 		// interface PageData {}

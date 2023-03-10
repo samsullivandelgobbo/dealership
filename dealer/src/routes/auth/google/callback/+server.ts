@@ -54,12 +54,12 @@ export async function GET({ url, cookies }) {
 
   const email = profileInfo.email
 
-  const customer = await db.user.findUnique({
+  const user = await db.user.findUnique({
     where: { email },
     include: { customer: true },
   });
 
-  if (!customer) {
+  if (!user) {
     const newCustomer = await db.customer.create({
       data: {
         user: {
@@ -74,14 +74,15 @@ export async function GET({ url, cookies }) {
         }
       }
     })
-    console.log(newCustomer)
-    console.log(customer)
+
     if (!newCustomer) {
       console.error("Error creating user")
     }
   } else {
+
+
     const authenticatedCustomer = await db.customer.update({
-      where: { id: customer.id },
+      where: user.customer,
       data: { user: { update: { authToken: access_token } } },
     })
   }
