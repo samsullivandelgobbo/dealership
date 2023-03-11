@@ -1,6 +1,6 @@
 <script lang="ts">
   import Modal from "$lib/components/base/Modal.svelte"
-  import AddVehicle from "$lib/components/base/admin/inventory/AddVehicle.svelte"
+  import AddVehicle from "$lib/components/base/admin/AddVehicle.svelte"
 </script>
 
 <Modal>

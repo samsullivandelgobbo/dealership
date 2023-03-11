@@ -1,3 +1,23 @@
+<script lang="ts">
+  import { page } from "$app/stores"
+
+  let vehicles: any[] = []
+
+
+  if ($page.data.vehicles) {
+    vehicles = $page.data.vehicles
+    
+  }
+
+  let pageLimit = 10
+
+  // for 
+
+
+</script>
+
+
+
 <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
   <div class="mx-auto max-w-fill px-4 lg:px-12">
     <!-- Start coding here -->
@@ -183,9 +203,9 @@
             <tr>
               <th scope="col" class="px-4 py-3">Make</th>
               <th scope="col" class="px-4 py-3">Model</th>
-              <th scope="col" class="px-4 py-3">Package</th>
-              <th scope="col" class="px-4 py-3"></th>
-              <th scope="col" class="px-4 py-3">Price</th>
+              <th scope="col" class="px-4 py-3">Trim</th>
+              <th scope="col" class="px-4 py-3">Odometer</th>
+              <th scope="col" class="px-4 py-3 normal-nums">Price</th>
               <th scope="col" class="px-4 py-3">
                 <span class="sr-only">Actions</span>
               </th>
@@ -195,19 +215,21 @@
 
 
 
-          <!-- {#each vehicle as vehicle (vehicle.id)} -->
+          {#each vehicles as vehicle, i (vehicle.id)}
+          {#if i < pageLimit}
+
 
           <tbody>
             <tr class="border-b dark:border-gray-700">
               <th
                 scope="row"
                 class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >Apple iMac 27&#34;</th
+                >{vehicle.make}</th
               >
-              <td class="px-4 py-3">PC</td>
-              <td class="px-4 py-3">Apple</td>
-              <td class="px-4 py-3">300</td>
-              <td class="px-4 py-3">$2999</td>
+              <td class="px-4 py-3">{vehicle.model}</td>
+              <td class="px-4 py-3">{vehicle.trim}</td>
+              <td class="px-4 py-3">{vehicle.odometer.toLocaleString('en')}</td>
+              <td class="px-4 py-3">${vehicle.price.toLocaleString('en')}</td>
               <td class="px-4 py-3 flex items-center justify-end">
                 <button
                   id="apple-imac-27-dropdown-button"
@@ -261,7 +283,9 @@
               </td>
             </tr>
           </tbody>
-          <!-- {/each} -->
+          {/if}
+          
+          {/each}
 
 
         </table>
@@ -272,9 +296,9 @@
       >
         <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
           Showing
-          <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
+          <span class="font-semibold text-gray-900 dark:text-white">1-{pageLimit}</span>
           of
-          <span class="font-semibold text-gray-900 dark:text-white">1000</span>
+          <span class="font-semibold text-gray-900 dark:text-white">{vehicles.length}</span>
         </span>
         <ul class="inline-flex items-stretch -space-x-px">
           <li>
@@ -305,35 +329,8 @@
               >1</a
             >
           </li>
-          <li>
-            <a
-              href="#"
-              class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              >2</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              aria-current="page"
-              class="flex items-center justify-center text-sm z-10 py-2 px-3 leading-tight text-primary-600 bg-primary-50 border border-primary-300 hover:bg-primary-100 hover:text-primary-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-              >3</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              >...</a
-            >
-          </li>
-          <li>
-            <a
-              href="#"
-              class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              >100</a
-            >
-          </li>
+
+
           <li>
             <a
               href="#"

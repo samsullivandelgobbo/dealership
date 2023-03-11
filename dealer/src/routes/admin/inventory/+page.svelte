@@ -5,9 +5,6 @@
   import AddVehicleModal from '$lib/components/blocks/admin/AddVehicleModal.svelte'
 
 
-  export let data: PageData
-  console.log(data)
-
 
 </script>
 

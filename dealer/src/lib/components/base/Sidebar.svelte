@@ -5,7 +5,7 @@
     <ul class="space-y-2">
       <li>
         <a
-          href="#"
+          href="/admin"
           class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
           <svg
@@ -18,29 +18,36 @@
               d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"
             /></svg
           >
-          <span class="ml-3">Overview</span>
+          <span class="ml-3">Dahsboard</span>
         </a>
       </li>
       <li>
         <button
           type="button"
           class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-          aria-controls="dropdown-pages"
-          data-collapse-toggle="dropdown-pages"
+          aria-controls="dropdown-inventory"
+          data-collapse-toggle="dropdown-inventory"
         >
           <svg
-            aria-hidden="true"
-            class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-            fill="currentColor"
-            viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
-            ><path
-              fill-rule="evenodd"
-              d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
-              clip-rule="evenodd"
-            /></svg
+            class="icon icon-tabler icon-tabler-car flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 "
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-          <span class="flex-1 ml-3 text-left whitespace-nowrap">Vehicles</span>
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path
+              d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5"
+            />
+          </svg>
+          <span class="flex-1 ml-3 text-left whitespace-nowrap">Inventory</span>
           <svg
             aria-hidden="true"
             class="w-6 h-6"
@@ -54,12 +61,12 @@
             /></svg
           >
         </button>
-        <ul id="dropdown-pages" class="hidden py-2 space-y-2">
+        <ul id="dropdown-inventory" class="hidden py-2 space-y-2">
           <li>
             <a
-              href="#"
+              href="/admin/inventory"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Settings</a
+              >Overview</a
             >
           </li>
           <li>
@@ -116,21 +123,21 @@
             <a
               href="#"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Products</a
+              >Appointments</a
             >
           </li>
           <li>
             <a
               href="#"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Billing</a
+              >Calendar</a
             >
           </li>
           <li>
             <a
               href="#"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Invoice</a
+              >Progress</a
             >
           </li>
         </ul>
@@ -141,17 +148,20 @@
           class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
           <svg
-            aria-hidden="true"
-            class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"
-            /><path
-              d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"
-            /></svg
+            aria-hidden="true"
+            class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
           >
+            <path
+              d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z"
+            />
+            <path
+              d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z"
+            />
+          </svg>
+
           <span class="flex-1 ml-3 whitespace-nowrap">Messages</span>
           <span
             class="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100 dark:bg-primary-200 dark:text-primary-800"

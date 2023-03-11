@@ -7,6 +7,10 @@ export default async function vinDecode(vin: string): Promise<VinDecode> {
   if (data.Results.length === 0) {
     throw new Error("Invalid VIN");
   }
+  // const 
+
+
+
   return data.Results[0];
 }
 
