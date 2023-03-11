@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,31 +7,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Base User Model / Normalization
 model User {
-  id              String    @id @default(uuid())
-  email           String    @unique
-  emailVerified   Boolean   @default(false)
+  id              String       @id @default(uuid())
+  email           String       @unique
+  emailVerified   Boolean      @default(false)
   passwordHash    String?
-  authToken       String    @unique
-  authMethod      Int // local [0], google [1]
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt // last login
+  authToken       String       @unique
+  authMethod      Int
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
   firstName       String?
   lastName        String?
   profilePhotoURL String?
-  phoneNumber     String?   @unique
-  phoneVerified   Boolean   @default(false)
-  address         Address[]
-
-  // Roles
-  customer    Customer?
-  salesPerson SalesPerson?
-  mechanic    Mechanic?
-  admin       Admin?
+  phoneNumber     String?      @unique
+  phoneVerified   Boolean      @default(false)
+  address         Address?
+  admin           Admin?
+  customer        Customer?
+  mechanic        Mechanic?
+  salesPerson     SalesPerson?
 }
 
-// Address Normalization
 model Address {
   address        String
   city           String
@@ -42,126 +35,110 @@ model Address {
   postalCode     String
   country        String
   defaultAddress Boolean
+  userId         String  @id @unique
   user           User    @relation(fields: [userId], references: [id])
-  userId         String  @unique
 
-  @@id([userId])
   @@index([userId])
 }
 
-// Customer Role
 model Customer {
+  userId    String             @id @unique
   user      User               @relation(fields: [userId], references: [id])
-  userId    String             @unique
-  vehicle   CustomerVehicle[]
+  vehicle   CustomerVehicle?
   favorites VehicleFavorites[]
 
-  @@id([userId])
   @@index([userId])
 }
 
-// Sales Person Role
 model SalesPerson {
+  userId       String        @id @unique
   user         User          @relation(fields: [userId], references: [id])
-  userId       String        @unique
   vehicleSales SoldVehicle[]
 
-  @@id([userId])
   @@index([userId])
 }
 
-// Mechanic Role
 model Mechanic {
+  userId String @id @unique
   user   User   @relation(fields: [userId], references: [id])
-  userId String @unique
 
-  @@id([userId])
   @@index([userId])
 }
 
-// Admin Role
 model Admin {
+  userId String @id @unique
   user   User   @relation(fields: [userId], references: [id])
-  userId String @unique
 
-  @@id([userId])
   @@index([userId])
 }
 
-// Base Vehicle Model / Normalization
 model Vehicle {
-  id              String            @id @default(uuid())
-  vin             String?           @unique
-  make            String?
-  model           String?
-  trim         String?
-  year            Int?
-  price           Int?
-  odometer        Int?
-  color           String?
-  interiorColor   String?
-  description     String?
-  bodyStyle       String?
-  fuelType        String?
-  transmission    String?
-  driveTrain      String?
-  engine          String?
-  engineCylinders Int?
-  engineDisplacement    Int?
-  engineHorsepower      Int?
-  seats           Int?
-  seatRows        Int?
-  doors          Int?
-  notes           String?
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @updatedAt
-  media           VehicleMedia[]
-  // Relations
-  inStockVehicle  InStockVehicle[]
-  soldVehicle     SoldVehicle[]
-  customerVehicle CustomerVehicle[]
+  id                 String           @id @default(uuid())
+  vin                String?          @unique
+  make               String?
+  model              String?
+  trim               String?
+  year               Int?
+  price              Int?
+  odometer           Int?
+  color              String?
+  interiorColor      String?
+  bodyStyle          String?
+  fuelType           String?
+  transmission       String?
+  driveTrain         String?
+  engine             String?
+  engineCylinders    Int?
+  engineDisplacement Int?
+  engineHorsepower   Int?
+  seats              Int?
+  seatRows           Int?
+  doors              Int?
+  notes              String?
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+  description        String?
+  customerVehicle    CustomerVehicle?
+  inStockVehicle     InStockVehicle?
+  soldVehicle        SoldVehicle?
+  media              VehicleMedia[]
 
   @@index([vin])
 }
 
 model VehicleMedia {
   url       String
-  vehicle   Vehicle @relation(fields: [vehicleId], references: [id])
   vehicleId String
   type      String
+  vehicle   Vehicle @relation(fields: [vehicleId], references: [id])
 
   @@id([url, vehicleId])
   @@index([vehicleId])
 }
 
-// Current Inventory
 model InStockVehicle {
+  vehicleId String             @id @unique
   vehicle   Vehicle            @relation(fields: [vehicleId], references: [id])
-  vehicleId String             @unique
   favorites VehicleFavorites[]
 
-  @@id([vehicleId])
   @@index([vehicleId])
 }
 
-// Sold Inventory
 model SoldVehicle {
-  vehicle       Vehicle     @relation(fields: [vehicleId], references: [id])
-  vehicleId     String      @unique
+  vehicleId     String      @id @unique
   dateSold      DateTime    @default(now())
-  salesPerson   SalesPerson @relation(fields: [salesPersonId], references: [userId])
   salesPersonId String
+  salesPerson   SalesPerson @relation(fields: [salesPersonId], references: [userId])
+  vehicle       Vehicle     @relation(fields: [vehicleId], references: [id])
 
-  @@id([vehicleId])
   @@index([vehicleId])
 }
 
-// Customer Vehicle
 model CustomerVehicle {
-  vehicle    Vehicle  @relation(fields: [vehicleId], references: [id])
   vehicleId  String   @unique
-  customer   Customer @relation(fields: [customerId], references: [userId])
   customerId String   @unique
+  customer   Customer @relation(fields: [customerId], references: [userId])
+  vehicle    Vehicle  @relation(fields: [vehicleId], references: [id])
 
   @@id([vehicleId, customerId])
   @@index([vehicleId, customerId])
@@ -169,63 +146,11 @@ model CustomerVehicle {
 
 model VehicleFavorites {
   id         String         @id @default(uuid())
-  customer   Customer       @relation(fields: [customerId], references: [userId])
   customerId String
-  vehicle    InStockVehicle @relation(fields: [vehicleId], references: [vehicleId])
   vehicleId  String
   dateAdded  DateTime       @default(now())
+  vehicle    InStockVehicle @relation(fields: [vehicleId], references: [vehicleId])
+  customer   Customer       @relation(fields: [customerId], references: [userId])
 
   @@unique([customerId, vehicleId])
 }
-
-// TODO : Add messages 
-// TODO : Add notifications
-
-// model Year {
-//   id    Int     @id @default(autoincrement())
-//   year  Int
-//   months Month[]
-// }
-
-// model Month {
-//   id      Int     @id @default(autoincrement())
-//   month   Int
-//   year    Year    @relation(fields: [yearId], references: [id])
-//   yearId  Int
-//   weeks   Week[]
-// }
-
-// model Week {
-//   id      Int     @id @default(autoincrement())
-//   week    Int
-//   month   Month   @relation(fields: [monthId], references: [id])
-//   monthId Int
-//   days    Day[]
-// }
-
-// model Day {
-//   id        Int     @id @default(autoincrement())
-//   day       Int
-//   week      Week    @relation(fields: [weekId], references: [id])
-//   weekId    Int
-//   hours     Hour[]
-// }
-
-// model Hour {
-//   id            Int      @id @default(autoincrement())
-//   hour          Int
-//   available     Boolean
-//   booked        Boolean
-//   appointment   Appointment[]
-//   day           Day      @relation(fields: [dayId], references: [id])
-//   dayId         Int
-// }
-
-// model Appointment {
-//   id           Int     @id @default(autoincrement())
-//   userName     String
-//   phoneNumber  String
-//   serviceType  String
-//   hour         Hour    @relation(fields: [hourId], references: [id])
-//   hourId       Int
-// }

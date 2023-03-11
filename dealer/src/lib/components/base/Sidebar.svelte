@@ -71,16 +71,16 @@
           </li>
           <li>
             <a
-              href="#"
+              href="/admin/invetory/targets"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Kanban</a
+              >Targets</a
             >
           </li>
           <li>
             <a
-              href="#"
+              href="/admin/inventory/analytics"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Calendar</a
+              >Analytics</a
             >
           </li>
         </ul>
@@ -104,7 +104,7 @@
               clip-rule="evenodd"
             /></svg
           >
-          <span class="flex-1 ml-3 text-left whitespace-nowrap">Sales</span>
+          <span class="flex-1 ml-3 text-left whitespace-nowrap">Service</span>
           <svg
             aria-hidden="true"
             class="w-6 h-6"
@@ -123,7 +123,7 @@
             <a
               href="#"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Appointments</a
+              >Overview</a
             >
           </li>
           <li>
@@ -137,7 +137,7 @@
             <a
               href="#"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Progress</a
+              >Appointments</a
             >
           </li>
         </ul>
@@ -166,7 +166,8 @@
           <span
             class="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full text-primary-800 bg-primary-100 dark:bg-primary-200 dark:text-primary-800"
           >
-            6
+            3
+            <!-- TODO:  Add messages -->
           </span>
         </a>
       </li>
@@ -189,9 +190,7 @@
               clip-rule="evenodd"
             /></svg
           >
-          <span class="flex-1 ml-3 text-left whitespace-nowrap"
-            >Authentication</span
-          >
+          <span class="flex-1 ml-3 text-left whitespace-nowrap">Access</span>
           <svg
             aria-hidden="true"
             class="w-6 h-6"
@@ -210,21 +209,21 @@
             <a
               href="#"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Sign In</a
+              >Users</a
             >
           </li>
           <li>
             <a
               href="#"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Sign Up</a
+              >Cameras</a
             >
           </li>
           <li>
             <a
               href="#"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-              >Forgot Password</a
+              >Warnings</a
             >
           </li>
         </ul>
