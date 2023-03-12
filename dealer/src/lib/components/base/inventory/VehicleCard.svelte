@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { enhance } from "$app/forms"
+  import { enhance } from "$app/forms";
 
-  export let isFavorite: boolean = false
-  export let vehicle: object = {}
+  export let isFavorite: boolean = false;
+  export let vehicle: object = {};
 
   let vehicleData = {
     id: vehicle.vehicleId,
@@ -13,7 +13,7 @@
     price: vehicle.vehicle.price,
     odometer: vehicle.vehicle.odometer,
     media: vehicle.vehicle.media[0].url,
-  }
+  };
 
   let title =
     vehicleData.year +
@@ -22,9 +22,9 @@
     " " +
     vehicleData.model +
     " " +
-    vehicleData.trim
-  let src: string = vehicleData.media
-  console.log(src)
+    vehicleData.trim;
+  let src: string = vehicleData.media;
+  console.log(src);
 </script>
 
 <div
@@ -33,14 +33,12 @@
   <div class="flex relative">
     <div class="absolute top-4 right-4 z-2 p-2">
       <form action="/inventory?/favorite" method="POST" use:enhance>
-
         <input type="hidden" name="vehicleId" value={vehicleData.id} />
         <button
-          on:click= {() => isFavorite = !isFavorite}
           type="submit"
           class="hover:scale-125 transition duration-150 ease-in-out "
+          on:click={() => (isFavorite = !isFavorite)}
         >
-  
           {#if isFavorite}
             <!-- Red Heart if isFavorite -->
             <svg
@@ -77,7 +75,7 @@
     </a>
   </div>
   <div class="px-5 pb-5">
-    <a href="#">
+    <a href="/inventory/{vehicleData.id}">
       <h5
         class="text-lg font-semibold tracking-tight text-gray-900 dark:text-white"
       >

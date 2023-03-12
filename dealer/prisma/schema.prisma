@@ -13,7 +13,7 @@ model User {
   emailVerified   Boolean      @default(false)
   passwordHash    String?
   authToken       String       @unique
-  authExpiry      DateTime    
+  authExpiry      DateTime
   authMethod      Int
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
@@ -129,8 +129,8 @@ model SoldVehicle {
   vehicleId     String      @id @unique
   dateSold      DateTime    @default(now())
   salesPersonId String
-  salesPerson   SalesPerson @relation(fields: [salesPersonId], references: [userId])
   vehicle       Vehicle     @relation(fields: [vehicleId], references: [id])
+  salesPerson   SalesPerson @relation(fields: [salesPersonId], references: [userId])
 
   @@index([vehicleId])
 }
@@ -138,8 +138,8 @@ model SoldVehicle {
 model CustomerVehicle {
   vehicleId  String   @unique
   customerId String   @unique
-  customer   Customer @relation(fields: [customerId], references: [userId])
   vehicle    Vehicle  @relation(fields: [vehicleId], references: [id])
+  customer   Customer @relation(fields: [customerId], references: [userId])
 
   @@id([vehicleId, customerId])
   @@index([vehicleId, customerId])
@@ -150,8 +150,8 @@ model VehicleFavorites {
   customerId String
   vehicleId  String
   dateAdded  DateTime       @default(now())
-  vehicle    InStockVehicle @relation(fields: [vehicleId], references: [vehicleId])
   customer   Customer       @relation(fields: [customerId], references: [userId])
+  vehicle    InStockVehicle @relation(fields: [vehicleId], references: [vehicleId])
 
   @@unique([customerId, vehicleId])
 }

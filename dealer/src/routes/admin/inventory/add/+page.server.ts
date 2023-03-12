@@ -54,7 +54,7 @@ const vehicle: Action = async ({ request, cookies }) => {
 
       const newImage = await db.VehicleMedia.create({
         data: {
-          url: `img/${newVehicle.id}/${filename}.${ext}`,
+          url: `/img/${newVehicle.id}/${filename}.${ext}`,
           vehicle: { connect: { id: newVehicle.id } },
           type: ext,
         },
