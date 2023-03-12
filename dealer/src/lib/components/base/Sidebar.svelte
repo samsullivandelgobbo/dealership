@@ -89,8 +89,8 @@
         <button
           type="button"
           class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-          aria-controls="dropdown-sales"
-          data-collapse-toggle="dropdown-sales"
+          aria-controls="dropdown-service"
+          data-collapse-toggle="dropdown-service"
         >
           <svg
             aria-hidden="true"
@@ -118,24 +118,24 @@
             /></svg
           >
         </button>
-        <ul id="dropdown-sales" class="hidden py-2 space-y-2">
+        <ul id="dropdown-service" class="hidden py-2 space-y-2">
           <li>
             <a
-              href="#"
+              href="/admin/service"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >Overview</a
             >
           </li>
           <li>
             <a
-              href="#"
+              href="/admin/service/calendar"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >Calendar</a
             >
           </li>
           <li>
             <a
-              href="#"
+              href="/admin/service/appointments"
               class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
               >Appointments</a
             >
@@ -144,7 +144,7 @@
       </li>
       <li>
         <a
-          href="#"
+          href="/admin/messages"
           class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
         >
           <svg

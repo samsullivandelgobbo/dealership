@@ -58,6 +58,7 @@ const register: Action = async ({ cookies, request, locals }) => {
       authMethod: 0,
       passwordHash: await bcrypt.hash(password, 10),
       authToken: crypto.randomUUID(),
+      authExpiry: new Date(Date.now() + 1000 * 60 * 60 * 2), // 2 Hour expiry
       firstName: name.firstName,
       lastName: name.lastName,
     },

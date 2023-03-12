@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { enhance } from '$app/forms'
   import type { ActionData } from './$types'
   export let form: ActionData
 
@@ -21,7 +22,7 @@
 </script>
 
 <h1 class="text-3xl font-semibold text-gray-800 capitalize">Sign In</h1>
-<form action="/auth/login?/login" method="POST">
+<form action="/auth/login?/login" method="POST" use:enhance>
 <div class="relative flex items-center mt-8">
   <span class="absolute">
     <svg

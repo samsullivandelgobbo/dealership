@@ -67,6 +67,7 @@ export async function GET({ url, cookies }) {
             email,
             authMethod: 1,
             authToken: access_token,
+            authExpiry: new Date(Date.now() + 1000 * 60 * 60 * 2), // 2 hour expiry
             firstName: name.firstName,
             lastName: name.lastName,
             profilePhotoURL: profilePic,
@@ -83,7 +84,14 @@ export async function GET({ url, cookies }) {
 
     const authenticatedCustomer = await db.customer.update({
       where: user.customer,
-      data: { user: { update: { authToken: access_token } } },
+      data: { 
+        user: { 
+          update: { 
+            authToken: access_token,
+            authExpiry: new Date(Date.now() + 1000 * 60 * 60 * 2) // 2 Hour expiry
+          } 
+        } 
+      },
     })
   }
 

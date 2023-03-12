@@ -3,24 +3,6 @@ import { db } from "$lib/data/database"
 
 export const handle: Handle = async ({ event, resolve }) => {
 
-  // Handle Login and Register errors
-  // if (event.url.pathname.startsWith("/auth/login") || event.url.pathname.startsWith("/auth/register")) {
-  //   const data = await event.request.formData()
-  //   const email = data.get("email")
-  //   const password = data.get("password")
-  //   const confirmPassword = data.get("confirmPassword")
-    
-  //   if (password !== confirmPassword) {
-  //     event.locals.errors = {
-  //       passwordMismatch: true,
-  //     }
-  //   }
-  //   console.log(event)
-  //   return await resolve(event)
-  // }
-
-
-
   // Handle authentication
 
   // get cookies from browser
@@ -37,32 +19,72 @@ export const handle: Handle = async ({ event, resolve }) => {
     include: { customer: true, admin: true, mechanic: true, salesPerson: true },
   })
 
+  // check authtoken expiry date
+
+  if (user && user.authExpiry < new Date()) {
+    console.log('token expired')
+
+    // if token expired delete token and redirect to login
+    await db.user.update({
+      where: { id: user.id },
+      data: { authToken: crypto.randomUUID(), authExpiry: new Date() },
+    })
+    event.cookies.delete('session')
+
+
+
+    return await resolve(event)
+      
+  } else {
+    console.log('token valid')
+  }
+
+
   enum Role {
     admin = "admin",
     customer = "customer",
     mechanic = "mechanic",
     salesPerson = "salesPerson",
   }
-
+  
   let role = user.admin
     ? Role.admin
-    : user.customer
-    ? Role.customer
     : user.mechanic
     ? Role.mechanic
     : user.salesPerson
     ? Role.salesPerson
+    : user.customer
+    ? Role.customer
     : null
 
-  // if `user` exists set `event.locals`
   if (user) {
-    event.locals.user = {
-      role: role,
-      email: user.email,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      profilePicture: user.profilePhotoURL,
-      favorites: user.favorites,
+    if (role !== Role.customer) {
+      event.locals.user = {
+        id: user.id,
+        role: role,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        profilePicture: user.profilePhotoURL,
+      }
+    } else if (role === Role.customer) {
+      // query db for customer favorites
+
+      const favorites = await db.vehicleFavorites.findMany({
+        where: { customerId: user.id },
+        include: { vehicle: true },
+      })
+
+
+      event.locals.user = {
+        id: user.id,
+        role: role,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        profilePicture: user.profilePhotoURL,
+        favorites: favorites.map((favorite) => favorite.vehicle.vehicleId),
+      }
     }
   }
 

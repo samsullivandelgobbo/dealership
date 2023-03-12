@@ -1,14 +1,20 @@
 <script lang="ts">
-  import type { PageData } from './$types'
+  import type { ActionData, PageData } from './$types'
 
-  import VehicleCard from '$lib/components/base/inventory/VehicleCard.svelte';
+  import Inventory from '$lib/components/blocks/inventory/Inventory.svelte';
 
   export let data: PageData
-  console.log(data)
+  export let form: ActionData
+  console.log(form)
+  let favorites = data.user.favorites
+
+  let vehicles  = data.inStockVehicles
+
+
 
 </script>
 
-<!-- <h1>{JSON.stringify(data)}</h1> -->
 
 
-<VehicleCard {data}/>
+
+<Inventory {vehicles} {favorites}/>
