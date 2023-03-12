@@ -24,6 +24,7 @@
     " " +
     vehicleData.trim
   let src: string = vehicleData.media
+  console.log(src)
 </script>
 
 <div

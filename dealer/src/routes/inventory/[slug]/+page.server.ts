@@ -1,7 +1,21 @@
-import type { PageServerLoad, Action, Actions } from './types'
+import type { PageServerLoad, Action, Actions } from "./types"
 
-import { db } from '$lib/data/database'
+import { db } from "$lib/data/database"
 
-export const load: PageServerLoad = async ({params}) => {
-  console.log('[slug] page.svelte', params)
+export const load: PageServerLoad = async ({ params }) => {
+
+  const id = params.slug
+
+  // get vehicle by id
+
+  const vehicle = await db.vehicle.findUnique({ 
+    where: {
+      id: id 
+    },
+    include: {
+      media: true,
+    }, 
+  })
+  
+  return {vehicle}
 }

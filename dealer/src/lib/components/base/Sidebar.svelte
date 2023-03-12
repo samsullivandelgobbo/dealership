@@ -91,19 +91,15 @@
           class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
           aria-controls="dropdown-service"
           data-collapse-toggle="dropdown-service"
-        >
-          <svg
-            aria-hidden="true"
-            class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              fill-rule="evenodd"
-              d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-              clip-rule="evenodd"
-            /></svg
-          >
+        >           
+        <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill=""></path>
+          <path d="M3 10v6"></path>
+          <path d="M12 5v3"></path>
+          <path d="M10 5h4"></path>
+          <path d="M5 13h-2"></path>
+          <path d="M6 10h2l2 -2h3.382a1 1 0 0 1 .894 .553l1.448 2.894a1 1 0 0 0 .894 .553h1.382v-2h2a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-2v-2h-3v2a1 1 0 0 1 -1 1h-3.465a1 1 0 0 1 -.832 -.445l-1.703 -2.555h-2v-6z"></path>
+       </svg>
           <span class="flex-1 ml-3 text-left whitespace-nowrap">Service</span>
           <svg
             aria-hidden="true"
@@ -190,7 +186,7 @@
               clip-rule="evenodd"
             /></svg
           >
-          <span class="flex-1 ml-3 text-left whitespace-nowrap">Access</span>
+          <span class="flex-1 ml-3 text-left whitespace-nowrap">Security</span>
           <svg
             aria-hidden="true"
             class="w-6 h-6"
