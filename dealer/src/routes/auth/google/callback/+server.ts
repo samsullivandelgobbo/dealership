@@ -3,9 +3,10 @@ import { error, json, redirect } from "@sveltejs/kit"
 import { db } from "$lib/data/database"
 
 
-export async function GET({ url, cookies }) {
+export async function GET({ url, cookies, request }) {
+
   const code = url.searchParams.get("code")
-  const state = url.searchParams.get("state")
+  const state = url.searchParams.get("state") || "/"
   console.log("State:", state)
 
   //get google access token & id token for name
@@ -138,5 +139,5 @@ export async function GET({ url, cookies }) {
     // set cookie to expire after a month
     maxAge: 60 * 60 * 24 * 30,
   })
-  throw redirect(302, "/")
+  throw redirect(302, state)
 }

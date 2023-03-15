@@ -24,7 +24,22 @@
     " " +
     vehicleData.trim;
   let src: string = vehicleData.media;
-  console.log(src);
+
+
+
+  async function handleFavorite() {
+    const response = await fetch("/inventory?/favorite", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        vehicleId: vehicleData.id,
+      }),
+    });
+    isFavorite = !isFavorite;
+
+  }
 </script>
 
 <div
@@ -32,12 +47,12 @@
 >
   <div class="flex relative">
     <div class="absolute top-4 right-4 z-2 p-2">
-      <form action="/inventory?/favorite" method="POST" use:enhance>
-        <input type="hidden" name="vehicleId" value={vehicleData.id} />
+      <!-- <form action="/inventory?/favorite" method="POST" use:enhance> -->
+        <!-- <input type="hidden" name="vehicleId" value={vehicleData.id} /> -->
         <button
           type="submit"
           class="hover:scale-125 transition duration-150 ease-in-out "
-          on:click={() => (isFavorite = !isFavorite)}
+          on:click={handleFavorite}
         >
           {#if isFavorite}
             <!-- Red Heart if isFavorite -->
@@ -68,7 +83,7 @@
             >
           {/if}
         </button>
-      </form>
+      <!-- </form> -->
     </div>
     <a href="/inventory/{vehicleData.id}">
       <img class="p-4 rounded-3xl" {src} alt="vehicle" />

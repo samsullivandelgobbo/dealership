@@ -15,6 +15,7 @@ const register: Action = async ({ cookies, request, locals }) => {
   const email = data.get('email')
   const password = data.get('password')
   const confirmPassword = data.get('confirmPassword')
+  const redirectUrl: string = request.headers.get('referer') || '/'
   const name = {
     firstName: data.get('firstName'),
     lastName: data.get('lastName')
@@ -101,7 +102,7 @@ const register: Action = async ({ cookies, request, locals }) => {
     maxAge: 60 * 60 * 24 * 30,
   })
 
-  throw redirect(303, '/auth/login')
+  throw redirect(303, redirectUrl)
 }
 
 export const actions: Actions = { register }

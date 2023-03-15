@@ -34,6 +34,10 @@ const login: Action = async ({ cookies, request }) => {
   const data = await request.formData()
   const email = data.get("email")
   const password = data.get("password")
+  const redirectUrl:string = request.headers.get("referer") || '/'
+
+
+  
 
 
   if (
@@ -82,7 +86,7 @@ const login: Action = async ({ cookies, request }) => {
   })
 
   // redirect the user
-  throw redirect(302, "/")
+  throw redirect(302, redirectUrl)
 }
 
 export const actions: Actions = { login }

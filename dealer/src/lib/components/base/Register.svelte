@@ -6,7 +6,6 @@
 <form
   action="/auth/register?/register"
   method="POST"
-  use:enhance={({ form, data, action, cancel }) => {}}
 >
   <div class="relative flex items-center mt-8">
     <span class="absolute">

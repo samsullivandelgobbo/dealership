@@ -6,31 +6,38 @@
   import HyundaiNav from "$lib/components/dealer/base/hyundai/HyundaiNav.svelte"
 
   import { page } from "$app/stores"
+
+  
+
+  interface UserInfo {
+    profilePicture: string
+    firstName: string
+    lastName: string
+  }
+
   let src: string
-  let name: object
+  let name: { firstName: string; lastName: string } | undefined
   if ($page.data.user) {
-    let userInfo = $page.data.user
+    let userInfo = $page.data.user as UserInfo
+    console.log(userInfo)
     src = userInfo.profilePicture
     name = {
       firstName: userInfo.firstName,
       lastName: userInfo.lastName,
     }
   }
-  export let hyundaiNav: boolean = true
 
+  export let hyundaiNav: boolean = true
 
   let registerForm: boolean = false
 
-
-  function handleRegister() {
+  function handleRegister(): void {
     registerForm = !registerForm
   }
 
-  function handleHyundaiNav() {
+  function handleHyundaiNav(): void {
     hyundaiNav = !hyundaiNav
   }
-
-
 </script>
 
 {#if hyundaiNav}
@@ -39,17 +46,23 @@
       <img src="/hyundai/logo/hyundai-logo-wide-blue.svg" alt="Hyundai Logo" />
     </a>
     <div slot="content">
-      
       <!-- ************************* Main Slot **************************** -->
       <slot />
-
     </div>
     <div slot="end">
       {#if $page.data.user}
         <div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-            <div class="w-10 rounded-full">
-              <img {src} />
+            <div class="w-10 rounded-full bg-blue-300">
+              {#if src}
+                <img {src} />
+              {:else if name}
+                <h1 class="text-xl font-bold pt-2">
+                  {name.firstName.charAt(0)}
+                </h1>
+              {:else}
+                <h1 class="text-xl font-bold pt-2" />
+              {/if}
             </div>
           </label>
           <ul
@@ -70,12 +83,10 @@
             </li>
           </ul>
         </div>
-
       {:else}
         <Modal>
           <div slot="button" class="btn hover:bg-transparent">Sign in</div>
           <div slot="form">
-
             <!-- Change form to register on click -->
 
             {#if registerForm}

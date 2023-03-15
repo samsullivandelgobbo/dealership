@@ -1,16 +1,16 @@
 <script lang="ts">
-  import VehicleCard from "$lib/components/base/inventory/VehicleCard.svelte";
+  import VehicleCard from "$lib/components/base/inventory/VehicleCard.svelte"
 
-  export let vehicles: any;
-  export let favorites: any = [];
+  export let vehicles: any
+  export let favorites: any = []
 
-  console.log(vehicles);
-  console.log("Favorites:", favorites);
+
+
 </script>
 
 <!-- Search Bar -->
 <div class="flex w-full min-w-full place-content-center content-center py-4">
-  <div class="w-1/2 ">
+  <div class="lg:w-1/2 w-full p-4 ">
     <form>
       <label
         for="default-search"
@@ -53,7 +53,67 @@
   </div>
 </div>
 
-<div class="flex" />
+<div class="flex w-full min-w-full">
+  <div class="flex content-start justify-start place-content-start">
+
+
+  </div>
+<div
+  class="flex w-full content-end justify-end place-content-end px-6"
+>
+  <!-- Sort Dropdown Selector -->
+  <div class="dropdown dropdown-end">
+    <label tabindex="-1" class="text-lg font-medium" for="">
+      <button class="btn btn-ghost btn-sm rounded-btn hover:bg-transparent px-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-chevron-down mr-1"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#000000"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+
+        Sort By
+      </button></label
+    >
+    <ul
+      tabindex="0"
+      class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+    >
+      <li><a>Item 1</a></li>
+      <li><a>Item 2</a></li>
+    </ul>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Drop Down Filter Button -->
+
+<!-- Make Model -->
+
+
+
+
+
+
+
+
+
+<!-- Vehicles -->
 
 <div class="w-full py-16 px-4 sm:px-6">
   <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -66,3 +126,5 @@
     {/each}
   </div>
 </div>
+
+

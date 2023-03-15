@@ -3,6 +3,8 @@ import { db } from "$lib/data/database"
 
 export const handle: Handle = async ({ event, resolve }) => {
 
+
+
   // Handle authentication
 
   // get cookies from browser
@@ -47,7 +49,11 @@ export const handle: Handle = async ({ event, resolve }) => {
     salesPerson = "salesPerson",
   }
   
-  let role = user.admin
+
+
+  if (user) {
+    
+    let role = user.admin
     ? Role.admin
     : user.mechanic
     ? Role.mechanic
@@ -57,7 +63,6 @@ export const handle: Handle = async ({ event, resolve }) => {
     ? Role.customer
     : null
 
-  if (user) {
     if (role !== Role.customer) {
       event.locals.user = {
         id: user.id,
